@@ -10,6 +10,7 @@ Random rnd = new Random();
 int[,] array = GetArray(m, n);
 Printarray(array);
 SortArray(array);
+Console.WriteLine( );
 Printarray(array);
 
 int[,] GetArray(int m, int n)
