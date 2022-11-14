@@ -125,7 +125,7 @@ void MinSum(int[,] array)
 /*
 Задача 58: Задайте две квадратные матрицы. Напишите программу, которая будет находить произведение двух матриц.
 */
-
+/*
 Console.WriteLine("Введите количество строк 1-го массива");
 int m = int.Parse(Console.ReadLine()!);
 Console.WriteLine("Введите количество столбцов 1-го массива");
@@ -201,3 +201,77 @@ void MultiplyArray(int[,] array, int[,] aray2, int[,] ResultArray)
         }
     }
 }
+*/
+
+/*
+Задача 60. ...Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента.
+*/
+/*
+int arraySizeX = 2;
+int arraySizeY = 2;
+int arraySizeZ = 2;
+int minNumber = 1;
+int maxNumber = 99;
+int[,,] Array = new int[arraySizeX, arraySizeY, arraySizeZ];
+FillArrayRandomNumber(Array, minNumber, maxNumber);
+PrintArray(Array);
+void FillArrayRandomNumber(int[,,] array, int minNumber = 0, int maxNumber = 9)
+{
+    Random rnd = new Random();
+
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            for (int h = 0; h < array.GetLength(2); h++)
+            {
+                while (array[i, j, h] == 0)
+                {
+                    int number = rnd.Next(minNumber, maxNumber + 1);
+
+                    if (IsNumberInArray(array, number) == false)
+                    {
+                        array[i, j, h] = number;
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+bool IsNumberInArray(int[,,] array, int number)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            for (int h = 0; h < array.GetLength(2); h++)
+            {
+                if (array[i, j, h] == number) return true;
+            }
+        }
+    }
+
+    return false;
+}
+
+void PrintArray(int[,,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            for (int h = 0; h < array.GetLength(2); h++)
+            {
+                Console.Write(array[i, j, h]);
+                Console.Write("({0},{1},{2})\t", i, j, h);
+            }
+
+            Console.WriteLine();
+        }
+
+        Console.WriteLine();
+    }
+}
+*/
